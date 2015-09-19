@@ -23,6 +23,10 @@ module.exports = {
       {
         test: /\.template.html$/,
         loader: 'raw'
+      },
+      {
+        test: /\.md$/,
+        loader: 'raw'
       }
     ]
   }

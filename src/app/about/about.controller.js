@@ -3,5 +3,6 @@ export default class AboutController {
     'ngInject'
     var self = this
     console.log('about controller', self)
+    self.about = require('../../../README.md')
   }
 }
