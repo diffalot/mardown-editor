@@ -1,4 +1,4 @@
-# Build Angular App to dist Folder
+# Build Angular App to ./dist Folder
 
     make
 
