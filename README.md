@@ -1,10 +1,6 @@
-# Installation
+# Build Angular App to dist Folder
 
     make
-
-# Running the Web Server
-
-    node index
 
 # Development Server
 
