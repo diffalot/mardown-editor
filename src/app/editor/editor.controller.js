@@ -1,8 +1,8 @@
-export default class AboutController {
+export default class EditorController {
   constructor () {
     'ngInject'
     var self = this
-    console.log('about controller', self)
+    console.log('editor controller', self)
     self.about = require('../../../README.md')
   }
 }

@@ -9,11 +9,11 @@ import routing from './app.routes'
 import AppController from './app.controller'
 import title from './app.title'
 
-import about from './about'
+import editor from './editor'
 
-angular.module('AngularWebpack', [
+angular.module('MarkdownEditor', [
   uirouter,
-  about
+  editor
 ])
 .controller('AppController', AppController)
 .config(config)
