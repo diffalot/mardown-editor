@@ -1,1 +1,212 @@
-<div marked="editor.about"></div>
+<div class="toolbar">
+  <button ng-click="editor.makeBold()">Bold</button>
+  <button ng-click="editor.makeItalic()">Italic</button>
+  <button ng-click="editor.makeBulletedList()">Bulleted List</button>
+  <button ng-click="editor.makeNumberedList()">Numbered List</button>
+  <button ng-click="editor.makeLink()">Link</button>
+  <button ng-click="editor.makeImage()">Image</button>
+  <button ng-click="editor.makeQuote()">Quote</button>
+  <button class="btn-icon help-button" ng-click="editor.toggleHelp()">?</button>
+</div>
+<div class="code-container">
+  <h4 class="title">Editor</h4>
+  <div ui-codemirror="{ onLoad: editor.editorLoaded }" ng-model="editor.markdown" ui-codemirror-opts="editor.codemirrorOptions"></div>
+</div>
+<div class="viewer">
+  <h4 class="title">Preview</h4>
+  <div class="help" ng-show="editor.helpOpen">
+    <marked>
+## Markdown Syntax Examples
+
+The Highlights editor uses markdown syntax, which is a handy way of writing human-readable html.
+Below, you will find examples of many of Markdown's features.
+For a complete reference, please visit [The Markdown Syntax Documentation](http://daringfireball.net/projects/markdown/syntax).
+
+## Headings
+
+Headings from `h1` through `h6` are constructed with a `#` for each level:
+
+``` markdown
+# h1 Heading
+## h2 Heading
+### h3 Heading
+```
+
+Renders to:
+
+# h1 Heading
+## h2 Heading
+### h3 Heading
+
+
+## Body Copy
+
+Body copy written as normal, plain text will be wrapped with `<p></p>` tags in the rendered HTML.
+
+So this body copy:
+
+``` markdown
+Lorem ipsum dolor sit amet, graecis denique ei vel, at duo primis mandamus.
+Et legere ocurreret pri, animal tacimates complectitur ad cum. Cu eum inermis
+inimicus efficiendi. Labore officiis his ex, soluta officiis concludaturque
+ei qui, vide sensibus vim ad.
+```
+
+Renders to:
+
+Lorem ipsum dolor sit amet, graecis denique ei vel, at duo primis mandamus. Et legere ocurreret pri, animal tacimates complectitur ad cum. Cu eum inermis inimicus efficiendi. Labore officiis his ex, soluta officiis concludaturque ei qui, vide sensibus vim ad.
+
+
+<br>
+<br>
+<br>
+
+
+## Emphasis
+
+### Bold
+For emphasizing a snippet of text with a heavier font-weight.
+
+The following snippet of text is **rendered as bold text**.
+
+``` markdown
+**rendered as bold text**
+```
+renders to:
+
+**rendered as bold text**
+
+### Italics
+For emphasizing a snippet of text with italics.
+
+The following snippet of text is _rendered as italicized text_.
+
+``` markdown
+_rendered as italicized text_
+```
+
+renders to:
+
+_rendered as italicized text_
+
+
+## Blockquotes
+For quoting blocks of content from another source within your document.
+
+Add `>` before any text you want to quote.
+
+``` markdown
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+```
+
+Renders to:
+
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+
+Blockquotes can also be nested:
+
+``` markdown
+> Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue.
+Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.
+>> Sed adipiscing elit vitae augue consectetur a gravida nunc vehicula. Donec auctor
+odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac eu diam.
+>>> Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue.
+Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.
+```
+
+Renders to:
+
+> Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue.
+Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.
+>> Sed adipiscing elit vitae augue consectetur a gravida nunc vehicula. Donec auctor
+odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac eu diam.
+>>> Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue.
+Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.
+
+
+## Lists
+
+### Unordered
+A list of items in which the order of the items does not explicitly matter.
+
+You may use any of the following symbols to denote bullets for each list item:
+
+```markdown
+* valid bullet
+- valid bullet
++ valid bullet
+```
+
+For example
+
+``` markdown
++ Facilisis in pretium nisl aliquet
++ Nulla volutpat aliquam velit
+  - Phasellus iaculis neque
++ Faucibus porta lacus fringilla vel
+```
+Renders to:
+
++ Facilisis in pretium nisl aliquet
++ Nulla volutpat aliquam velit
+  - Phasellus iaculis neque
++ Faucibus porta lacus fringilla vel
+
+### Ordered
+
+A list of items in which the order of items does explicitly matter.
+
+``` markdown
+1. Lorem ipsum dolor sit amet
+2. Consectetur adipiscing elit
+3. Integer molestie lorem at massa
+```
+Renders to:
+
+1. Lorem ipsum dolor sit amet
+2. Consectetur adipiscing elit
+3. Integer molestie lorem at massa
+
+**TIP**: If you just use `1.` for each number, GitHub will automatically number each item. For example:
+
+``` markdown
+1. Lorem ipsum dolor sit amet
+1. Consectetur adipiscing elit
+1. Integer molestie lorem at massa
+```
+
+Renders to:
+
+1. Lorem ipsum dolor sit amet
+1. Consectetur adipiscing elit
+1. Integer molestie lorem at massa
+
+
+## Links
+
+``` markdown
+[EdgeTheory](http://edgetheory.com)
+```
+
+Renders to (hover over the link, there is no tooltip):
+
+[EdgeTheory](http://edgetheory.com)
+
+
+## Images
+Images have a similar syntax to links but include a preceding exclamation point.
+
+``` markdown
+![Minion](http://octodex.github.com/images/minion.png)
+```
+![Minion](http://octodex.github.com/images/minion.png)
+
+or
+``` markdown
+![Alt text](http://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+```
+![Alt text](http://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+      </marked>
+  </div>
+  <div class="preview" marked="editor.markdown"></div>
+</div>

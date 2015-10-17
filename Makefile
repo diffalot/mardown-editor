@@ -15,11 +15,15 @@ build: $(TARGET_DIR)
 clean:
 	rm -rf $(TARGET_DIR)
 
-static: index
+static: index templates
 
 index:
 	mkdir -p $(TARGET_DIR)
 	cp ./src/index.html $(TARGET_DIR)
+
+templates:
+	mkdir -p $(TARGET_DIR)/app/editor
+	cp ./src/app/editor/*.html $(TARGET_DIR)/app/editor/
 
 lint: node_modules
 	$(STANDARD)
